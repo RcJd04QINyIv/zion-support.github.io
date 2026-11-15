@@ -154,6 +154,49 @@
 </div></main>
 <footer><div class="wrap"><p>© 2026 Zion Tech Group · <a href="mailto:kleber@ziontechgroup.com">kleber@ziontechgroup.com</a> · +55 11 97614-0076</p>
 <p><a href="/privacy/">Privacy</a> · <a href="/en/plans/">Plans</a> · <a href="/en/enterprise/">Enterprise</a> · <a href="/plans/">Português</a> · <a href="/en/plans/">English</a></p></div></footer>
+
+<section id="plan-contact" style="margin-top:2rem">
+<h2>Request the full proposal</h2>
+<p style="color:#9aa8bd">Get the complete plan for your case by email. Commercial is copied on every request.</p>
+<form id="zion-contact-form">
+<p><label>Name<br><input required name="name" autocomplete="name" style="width:100%;padding:.6rem;border-radius:8px;border:1px solid #243049;background:#0f172a;color:#e8eef8"></label></p>
+<p><label>Work email<br><input required type="email" name="email" autocomplete="email" style="width:100%;padding:.6rem;border-radius:8px;border:1px solid #243049;background:#0f172a;color:#e8eef8"></label></p>
+<p><label>Company<br><input name="company" style="width:100%;padding:.6rem;border-radius:8px;border:1px solid #243049;background:#0f172a;color:#e8eef8"></label></p>
+<p><label>Message<br><textarea name="message" rows="4" style="width:100%;padding:.6rem;border-radius:8px;border:1px solid #243049;background:#0f172a;color:#e8eef8"></textarea></label></p>
+<p><button type="submit" style="padding:.7rem 1.2rem;border:0;border-radius:10px;background:#0ea5e9;color:#fff;font-weight:700;cursor:pointer">Request proposal</button></p>
+<p id="zc-status" role="status" aria-live="polite" style="color:#7dd3fc"></p>
+</form>
+</section>
+
 <script src="/assets/js/zion-shell.js" defer></script>
+
+<script>
+(function(){
+  var f=document.getElementById('zion-contact-form');
+  if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=Object.fromEntries(new FormData(f).entries());
+    var status=document.getElementById('zc-status');
+    status.textContent='Sending…';
+    var body=JSON.stringify({
+      name:d.name, email:d.email, company:d.company||'', country:d.country||'',
+      interest:d.interest||'', message:d.message||'',
+      _subject:'Contact — '+d.name,
+      _replyto:d.email,
+      _cc:d.email
+    });
+    fetch('https://formsubmit.co/ajax/commercial@ziontechgroup.com',{
+      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:body
+    }).then(function(r){ if(!r.ok) throw new Error('rejected');
+      status.textContent='Thank you — your message was sent. We reply within one business day.';
+      f.reset();
+    }).catch(function(){
+      status.textContent='Automatic sending failed. Please email commercial@ziontechgroup.com directly.';
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

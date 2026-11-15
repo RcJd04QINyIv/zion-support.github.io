@@ -1634,6 +1634,73 @@ export default function HomePage() {
         </div>
       </section>
     <FloatingActionDock />
+      {/* ── What's New — advertises latest improvements & AI insights ── */}
+      <section id="whats-new" className="py-20 bg-gradient-to-b from-slate-950 via-purple-950/20 to-slate-950 border-t border-slate-800">
+        <div className="container-page">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-xs font-semibold uppercase tracking-widest text-purple-400 mb-2">🚀 New This Cycle</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-violet-400 bg-clip-text text-transparent">
+                  What's New in Zion
+                </span>
+              </h2>
+              <p className="text-slate-400 max-w-2xl mx-auto">
+                Fresh AI capabilities, live agent intelligence, and open-source tools — shipped continuously by our
+                autonomous AI fleet. Here is what just landed.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Hermes Agent insights blog posts */}
+              <Link
+                href="/blog/monitoramento-frota-hermesses-agent"
+                className="group block rounded-2xl border border-purple-500/20 bg-slate-900/60 hover:bg-slate-800/70 hover:border-purple-400/40 transition-all p-6"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">🤖</span>
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-purple-300 bg-purple-400/10 border border-purple-500/30 px-2 py-0.5 rounded-full">New Blog</span>
+                </div>
+                <h3 className="text-base font-semibold text-white group-hover:text-purple-300 transition-colors mb-1">Monitorando a Frota de Agentes Hermes</h3>
+                <p className="text-xs text-slate-400 leading-relaxed mb-3 line-clamp-2">How the autonomous Hermes fleet monitors service operations, quality, and uptime in real time.</p>
+                <span className="text-xs text-purple-300 font-medium">Read the article →</span>
+              </Link>
+              <Link
+                href="/blog/treinamento-certificacao-especialistas-hermesses-agent"
+                className="group block rounded-2xl border border-pink-500/20 bg-slate-900/60 hover:bg-slate-800/70 hover:border-pink-400/40 transition-all p-6"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">🎓</span>
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-pink-300 bg-pink-400/10 border border-pink-500/30 px-2 py-0.5 rounded-full">New Blog</span>
+                </div>
+                <h3 className="text-base font-semibold text-white group-hover:text-pink-300 transition-colors mb-1">Treinamento & Certificação de Especialistas Hermes</h3>
+                <p className="text-xs text-slate-400 leading-relaxed mb-3 line-clamp-2">Building certified specialist capability for the Hermes autonomous agent fleet.</p>
+                <span className="text-xs text-pink-300 font-medium">Read the article →</span>
+              </Link>
+              <Link
+                href="/tools/ai-service-router/"
+                className="group block rounded-2xl border border-emerald-500/20 bg-slate-900/60 hover:bg-slate-800/70 hover:border-emerald-400/40 transition-all p-6"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">🧭</span>
+                  <span className="text-[10px] uppercase tracking-wider font-semibold text-emerald-300 bg-emerald-400/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">New Tool</span>
+                </div>
+                <h3 className="text-base font-semibold text-white group-hover:text-emerald-300 transition-colors mb-1">AI Service Router</h3>
+                <p className="text-xs text-slate-400 leading-relaxed mb-3 line-clamp-2">Point your need at our live {services.length}+ service catalog and get AI-ranked recommendations instantly.</p>
+                <span className="text-xs text-emerald-300 font-medium">Open the tool →</span>
+              </Link>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/blog" className="btn-primary text-base px-8 py-3">📝 Read the Full Blog</Link>
+              <span className="mx-3 text-slate-600">·</span>
+              <Link href="/agents-monitoring" className="btn-secondary text-base px-8 py-3">🤖 Watch the Agents Live</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <FloatingActionDock />
     </main>
   );
 }
